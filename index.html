@@ -72,7 +72,100 @@
 
   <body class="no-js">
     <div class="main">
+      <div style="position: fixed; width: 200px; z-index: 10000">
+        <img src="logo.png" alt="" />
+      </div>
       <main>
+        <page-module partial="Navigation" position="2">
+          <link
+            href="./static/css/Navigation/Navigation.css?fingerprint=ee368ff4f18018682d639e2ee66a6cae"
+            rel="stylesheet"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+          />
+          <script
+            src="./static/chunks/partials/Navigation/Navigation.js?fingerprint=1d201f2d0db876b743d2ed7e14efb31c"
+            type="module"
+          ></script>
+          <page-module-container
+            ><div class="navigation_container">
+              <navigation-sticky-wrapper
+                data-stop-section-id="#navigation-stop_1"
+                data-navigation="#navigation"
+                class="navigation_sticky-wrapper"
+                style="height: 13975px"
+                ><nav id="navigation" class="navigation scroll-down">
+                  <navigation-manager class="navigation_manager"
+                    ><ul
+                      id="navigation_link_wrapper"
+                      class="navigation_link-wrapper"
+                      style=""
+                    >
+                      <li
+                        aria-hidden="true"
+                        class="navigation_mobile-spacer-wrapper"
+                      >
+                        <navigation-spacer
+                          data-sibling="0"
+                          class="navigation_mobile-spacer"
+                          style="width: 40.6437px"
+                        ></navigation-spacer>
+                      </li>
+                      <li
+                        id="navigation_item-0"
+                        data-navigation-id="introduction"
+                        class="navigation_link"
+                      >
+                        <a href="#introduction"><span>Telegram</span></a>
+                      </li>
+                      <li
+                        id="navigation_item-1"
+                        data-navigation-id="capabilities"
+                        class="navigation_link"
+                      >
+                        <a href="#capabilities"><span>Twitter</span></a>
+                      </li>
+                      <li
+                        id="navigation_item-2"
+                        data-navigation-id="hands-on"
+                        class="navigation_link"
+                      >
+                        <a href="#hands-on"><span>Chart</span></a>
+                      </li>
+                      <li
+                        id="navigation_item-3"
+                        data-navigation-id="safety"
+                        class="navigation_link navigation_selected"
+                      >
+                        <a href="#safety"><span>Buy</span></a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="navigation_mobile-spacer-wrapper"
+                      >
+                        <navigation-spacer
+                          data-sibling="5"
+                          class="navigation_mobile-spacer"
+                          style="width: 32.6125px"
+                          >&nbsp;</navigation-spacer
+                        >
+                      </li>
+                    </ul>
+                    <div id="indicator_wrapper" class="indicator_wrapper">
+                      <div
+                        id="mobile_indicator"
+                        class="mobile_indicator"
+                        style="
+                          translate: none;
+                          rotate: none;
+                          scale: none;
+                          transform: scale(0.1381, 1);
+                        "
+                      ></div></div
+                  ></navigation-manager></nav
+              ></navigation-sticky-wrapper></div
+          ></page-module-container>
+        </page-module>
         <page-module
           id="build-with-gemini"
           partial="LineGradientTitle"
@@ -110,14 +203,15 @@
                       data-in-view
                       class="section-title__title t-h2 glue-headline css-in-view"
                     >
-                      Build with Gemini
+                      Speak with AIVAX
                     </h2>
                     <p
                       data-in-view
                       class="section-title__text t-paragraph css-in-view"
                     >
-                      Integrate Gemini models into your applications with Google
-                      AI Studio and Google Cloud Vertex AI.
+                      Join Aivax community, grab a bag, shill to your firends
+                      and of coursse have fun with first Gemini Ai Bot for
+                      telegram !
                     </p>
                   </div>
                   <a
@@ -125,7 +219,7 @@
                     target="_blank"
                     data-in-view
                     class="custom-button glue-button custom-button--white css-in-view"
-                    ><span class="button__label">ai.google.dev</span></a
+                    ><span class="button__label">JOIN</span></a
                   >
                 </div>
               </div>
