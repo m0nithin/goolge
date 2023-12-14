@@ -1,0 +1,349 @@
+.video-chapters {
+    position: relative;
+    padding-top: var(--spacer-sections)
+}
+
+.video-chapters__block {
+    width: 100%;
+    overflow: hidden;
+    display: block
+}
+
+@media(min-width: 43.75rem) {
+    .video-chapters__block .gemini-grid {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1496px
+    }
+}
+
+.video-chapters__player {
+    position: relative;
+    --round: 24px;
+    --offset: 20%;
+    display: flex;
+    padding-bottom: 70%;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--round);
+    background-color: #dadce0;
+    overflow: hidden;
+    aspect-ratio: auto !important;
+    will-change: transform;
+    grid-column: 2/span 10
+}
+
+@media(min-width: 43.75rem) {
+    .video-chapters__player {
+        padding-bottom: 56%
+    }
+}
+
+@media(min-width: 64rem) {
+    .video-chapters__player {
+        --round: 37px
+    }
+}
+
+.video-chapters__player .gradient-border {
+    width: 75%;
+    height: 70%
+}
+
+@media(min-width: 43.75rem) {
+    .video-chapters__player .gradient-border {
+        width: 70%;
+        height: auto
+    }
+}
+
+.video-chapters__player .play,
+.video-chapters__player .button-fallback {
+    all: unset;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+.video-chapters__player .play[aria-hidden=true],
+.video-chapters__player .button-fallback[aria-hidden=true] {
+    display: none;
+    visibility: hidden
+}
+
+.video-chapters__player .play svg,
+.video-chapters__player .button-fallback svg {
+    position: relative;
+    z-index: 2
+}
+
+.video-chapters__player .play img,
+.video-chapters__player .play video,
+.video-chapters__player .button-fallback img,
+.video-chapters__player .button-fallback video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s;
+    z-index: 1
+}
+
+.video-chapters__player .play img.visible,
+.video-chapters__player .play video.visible,
+.video-chapters__player .button-fallback img.visible,
+.video-chapters__player .button-fallback video.visible {
+    opacity: 1;
+    visibility: visible
+}
+
+.video-chapters__player .play:focus-visible::after,
+.video-chapters__player .button-fallback:focus-visible::after {
+    position: absolute;
+    content: "";
+    height: 71px;
+    width: 71px;
+    border-radius: 50%;
+    background: none;
+    outline: 2px solid #fff;
+    outline-offset: 2px
+}
+
+.video-chapters__player .button-fallback img,
+.video-chapters__player .button-fallback video {
+    opacity: 1;
+    visibility: visible
+}
+
+.video-chapters__player.--playing .gradient-border,
+.video-chapters__player.--playing .play {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity calc(.5s*var(--motion)) calc(.4s*var(--motion));
+    pointer-events: none
+}
+
+.video-chapters__player.--playing iframe {
+    visibility: visible;
+    pointer-events: all
+}
+
+.video-chapters__player .gradient-border,
+.video-chapters__player .play {
+    transition: opacity calc(.5s*var(--motion))
+}
+
+.video-chapters__player iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    pointer-events: none;
+    visibility: hidden
+}
+
+.video-chapters__gradients {
+    position: relative;
+    width: 100%;
+    height: auto
+}
+
+.video-chapters__gradients:before,
+.video-chapters__gradients:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none
+}
+
+@media(min-width: 43.75rem) {
+    .video-chapters__gradients:before,
+    .video-chapters__gradients:after {
+        width: 150px
+    }
+}
+
+@media(min-width: 64rem) {
+    .video-chapters__gradients:before,
+    .video-chapters__gradients:after {
+        width: 246px
+    }
+}
+
+.video-chapters__gradients:before {
+    left: 0;
+    background: linear-gradient(270deg, rgba(5, 5, 5, 0) 38.52%, #060606 97.86%)
+}
+
+.video-chapters__gradients:after {
+    right: 0;
+    background: linear-gradient(270deg, #060606 38.52%, rgba(5, 5, 5, 0) 97.86%)
+}
+
+.video-chapters__chapters {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: none;
+    margin-top: 20px;
+    grid-column: 2/-1;
+    padding-left: calc(100%/var(--grid-columns));
+    scroll-snap-type: mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none
+}
+
+.video-chapters__chapters::-webkit-scrollbar {
+    display: none
+}
+
+@media(max-width: 43.6875rem) {
+    .video-chapters__chapters {
+        padding-left: var(--spacer-4)
+    }
+}
+
+@media screen and (min-width: 1497px) {
+    .video-chapters__chapters {
+        padding-left: calc(1497px/var(--grid-columns) + (100% - 1497px)/2)
+    }
+    .video-chapters__chapters__list {
+        padding-right: calc(1497px/var(--grid-columns) + (100vw - 1497px)/2) !important
+    }
+}
+
+.video-chapters__chapters__list {
+    position: relative;
+    width: -moz-max-content;
+    width: max-content;
+    display: flex;
+    align-items: flex-start;
+    justify-items: flex-start;
+    gap: 45px;
+    list-style-type: upper-roman;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+    padding-right: calc(100%/var(--grid-columns))
+}
+
+@media(min-width: 64rem) {
+    .video-chapters__chapters__list {
+        gap: 15px
+    }
+}
+
+.video-chapters__chapters__list.out-view-bottom .chapter button,
+.video-chapters__chapters__list.out-view-top .chapter button {
+    opacity: 0
+}
+
+.video-chapters__chapters__list.out-view-bottom .chapter::marker,
+.video-chapters__chapters__list.out-view-top .chapter::marker {
+    color: #060606
+}
+
+.video-chapters__chapters__list.out-view-bottom .chapter::after,
+.video-chapters__chapters__list.out-view-top .chapter::after {
+    transform: scale(0, 1)
+}
+
+.video-chapters__chapters__list.in-view .chapter button {
+    opacity: 1;
+    transition: all calc(.5s*var(--motion)) calc(var(--delay)*var(--motion)) ease-out
+}
+
+.video-chapters__chapters__list.in-view .chapter::marker {
+    color: #fff;
+    transition: all calc(.5s*var(--motion)) calc(var(--delay)*var(--motion)) ease-out
+}
+
+.video-chapters__chapters__list.in-view .chapter::after {
+    transform: scale(1, 1);
+    transition: all calc(.5s*var(--motion)) calc(var(--delay)*var(--motion)) ease-out
+}
+
+.video-chapters__chapters .chapter {
+    position: relative;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: color calc(.4s*var(--motion));
+    color: #909dac;
+    padding: 24px 0 25px;
+    text-align: left;
+    font-size: 1.125rem
+}
+
+.video-chapters__chapters .chapter:focus-within:has(:focus-visible) {
+    color: #fff
+}
+
+@media(hover: hover) {
+    .video-chapters__chapters .chapter:hover {
+        color: #fff
+    }
+}
+
+.video-chapters__chapters .chapter button {
+    all: unset;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    margin: 0;
+    padding: 0
+}
+
+.video-chapters__chapters .chapter button::after {
+    content: "";
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute
+}
+
+.video-chapters__chapters .chapter::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #2e2e2e;
+    top: 0;
+    left: 0;
+    transition: background calc(.2s*var(--motion)) ease-out, transform calc(.2s*var(--motion)) ease-out;
+    transform-origin: left
+}
+
+.video-chapters__chapters .chapter[aria-current] {
+    color: #fff
+}
+
+.video-chapters__chapters .chapter[aria-current]::after {
+    background: linear-gradient(90deg, #076eff 0%, #4fabff 36.46%, #b1c5ff 66.67%, #ffddb7 100%)
+}
+
+.no-js .video-chapters .video-chapters__chapters {
+    display: none
+}
